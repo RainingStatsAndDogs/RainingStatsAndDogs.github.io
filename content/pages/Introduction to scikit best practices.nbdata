@@ -1,0 +1,7 @@
+Title: Introduction to scikit-learn Best Practices
+Slug: intro-to-sklearn-best-practices
+Date: '2022-02-19'
+Category: python
+Tags: python sklearn gridsearchcv pipelines
+Author: PB
+Summary: Showing how to integrate gridsearchcv within sklearn pipelines
