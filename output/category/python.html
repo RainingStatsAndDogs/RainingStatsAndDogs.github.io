@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Pelican" />
-        <title>Introduction to Model Validation - Pt 1</title>
+        <title>It's Raining Stats and Dogs - python</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="It's Raining Stats and Dogs Atom Feed" />
 </head>
@@ -14,14 +14,24 @@
                 <h1><a href="/">It's Raining Stats and Dogs</a></h1>
                 <nav><ul>
                     <li><a href="/pages/about.html">About Me & Introduction</a></li>
-                    <li class="active"><a href="/pages/intro-to-model-validation-1.html">Introduction to Model Validation - Pt 1</a></li>
-                    <li><a href="/pages/intro-to-sklearn-best-practices.html">Introduction to scikit-learn Best Practices</a></li>
+                    <li class="active"><a href="/category/python.html">python</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-    <h1 class="entry-title">Introduction to Model Validation - Pt 1</h1>
-    
-    <style type="text/css">/*!
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/intro-to-model-validation-1.html">Introduction to Model Validation - Pt 1</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2022-02-20T00:00:00-08:00">
+                Published: Sun 20 February 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/pb.html">PB</a>
+        </address>
+<p>In <a href="/category/python.html">python</a>.</p>
+<p>tags: <a href="/tag/python-sklearn-learning_curves-baseline_models.html">python sklearn learning_curves baseline_models</a> </p>
+</footer><!-- /.post-info --><style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -1140,7 +1150,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Where-we-left-off">Where we left off<a class="anchor-link" href="#Where-we-left-off">&#182;</a></h2><p>Last post, we explored using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline">Pipelines</a> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html?highlight=gridsearchcv#sklearn.model_selection.GridSearchCV">GridSearchCV</a> for training our models. The quick refresher is that <code>GridSearchCV</code> combines <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics">Cross-Validation</a>#:~:text=Cross%2Dvalidation%20is%20a%20resampling,model%20will%20perform%20in%20practice.) (CV), a mechanism to test <a href="https://developers.google.com/machine-learning/crash-course/generalization/video-lecture#:~:text=Generalization%20refers%20to%20your%20model&#39;s,model%20is%20good%20or%20not.">how well models generalise to data they have not seen before</a>, with <a href="https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search">Grid Search</a> (aka "Parameter Sweep"), a way to check which <a href="https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning">hyperparameters</a>) yield the best performance. <code>Pipelines</code> are (IMO) not nearly as popular as they should be, as these provide an execution plan that gets followed by the <code>GridSearchCV</code> object. This means that, not only can you prevent leakage when doing feature scaling, but you can <em>even let the model decide if it should scale features at all</em>!</p>
+<h2 id="Where-we-left-off">Where we left off<a class="anchor-link" href="#Where-we-left-off">&#182;</a></h2><p>Last post, we explored using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline">Pipelines</a> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html?highlight=gridsearchcv#sklearn.model_selection.GridSearchCV">GridSearchCV</a> for training our models. The quick refresher is that <code>GridSearchCV</code> combines <a href="https://www.cs.cmu.edu/~schneide/tut5/node42.html">Cross-Validation</a> (CV), a mechanism to test <a href="https://developers.google.com/machine-learning/crash-course/generalization/video-lecture#:~:text=Generalization%20refers%20to%20your%20model&#39;s,model%20is%20good%20or%20not.">how well models generalise to data they have not seen before</a>, with <a href="https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search">Grid Search</a> (aka "Parameter Sweep"), a way to check which <a href="https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning">hyperparameters</a>) yield the best performance. <code>Pipelines</code> are (IMO) not nearly as popular as they should be, as these provide an execution plan that gets followed by the <code>GridSearchCV</code> object. This means that, not only can you prevent leakage when doing feature scaling, but you can <em>even let the model decide if it should scale features at all</em>!</p>
 <p>Combining these approaches will give you confidence that (given the algorithm, data, hyperparameters and processes you tested) you have picked the optimal model. So what's the problem? Well one fairly large problem is that we don't even know if the algorithm we picked is any good in the first place! For instance, your data clearly exhibits strong periodicity, but your algorithm is not flexible enough to capture it.</p>
 <p>Unfortunately the CV process on its own cannot tell you this; you pick a metric to optimize and it will pick the hyperparameters that did the best, but it cannot tell you if it was "good". Adding more hyperparameters to test or even including multiple algorithms within the Pipeline/GridSearchCV object can help reduce the risk, but it does increase the run time substantially AND you still don't know if the performance is "good enough".</p>
 <p>A good, principled solution in practice is to establish a baseline of performance and analyze the "<a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">Bias-Variance Trade-off</a>" with <a href="https://en.wikipedia.org/wiki/Learning_curve_(machine_learning">Learning Curves</a>). A baseline can provide you with a reference as to how well your more advanced approaches are actually improving the problems, while the Learning Curves can help you assess which regime (e.g. High Bias, High Variance) your model is currently in. There are some specific things to look at depending on if you are performing Regression or Classification, so we'll start with a <strong>Regression</strong> example, before moving on to a Classification example (probably in another post).</p>
@@ -1912,16 +1922,51 @@ For the 10th-Degree Regressor during Test, the MAE was 0.76, RMSE was 1.00 and R
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
 
-</section>
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/intro-to-sklearn-best-practices.html" rel="bookmark"
+                           title="Permalink to Introduction to scikit-learn Best Practices">Introduction to scikit-learn Best Practices</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-02-19T00:00:00-08:00">
+                Published: Sat 19 February 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/pb.html">PB</a>
+        </address>
+<p>In <a href="/category/python.html">python</a>.</p>
+<p>tags: <a href="/tag/python-sklearn-gridsearchcv-pipelines.html">python sklearn gridsearchcv pipelines</a> </p>
+</footer><!-- /.post-info -->                <p>Showing how to integrate gridsearchcv within sklearn pipelines</p>
+                <a class="readmore" href="/intro-to-sklearn-best-practices.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
                         <ul>
                             <li><a href="https://getpelican.com/">Pelican</a></li>
                             <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://www.cran.org/">R</a></li>
+                            <li><a href="https://julialang.org/">Julia</a></li>
                             <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
+                            <li><a href="https://scikit-learn.org/stable/">scikit-learn</a></li>
+                            <li><a href="https://www.statsmodels.org/stable/index.html">statsmodels</a></li>
+                            <li><a href="https://docs.pymc.io/en/v3/">pymc</a></li>
+                            <li><a href="https://num.pyro.ai/en/latest/index.html#">numpyro</a></li>
+                            <li><a href="https://mc-stan.org/">Stan</a></li>
+                            <li><a href="https://www.tidyverse.org/">tidyverse</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
@@ -1929,8 +1974,7 @@ For the 10th-Degree Regressor during Test, the MAE was 0.76, RMSE was 1.00 and R
                         <ul>
                             <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
+                            <li><a href="https://github.com/RainingStatsAndDogs">Github</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
