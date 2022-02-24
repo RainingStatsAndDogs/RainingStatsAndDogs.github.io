@@ -11,6 +11,7 @@ There are some amazing free resources out there for everyone to use and I'll do 
 
 ## Machine Learning
 ### General Books
+* [**Alpaydim, Ethem**: Introduction to Machine Learning](https://dl.matlabyar.com/siavash/ML/Book/Ethem%20Alpaydin-Introduction%20to%20Machine%20Learning-The%20MIT%20Press%20(2014).pdf) 
 * [**Barber, David**: Bayesian Reasoning and Machine Learning](http://web4.cs.ucl.ac.uk/staff/D.Barber/textbook/090310.pdf) - Another of my all-time favorites. It's a fantastic book with excellent exposition.
 * [**Diesenroth et al.**: Mathematics for Machine Learning](https://mml-book.github.io/) - A really great book going through the required math for modern ML (linear algebra, optimization, probability, etc...) with some algorithms discussed. It's a wonderful book and the authors are graciously keeping the book free to access.
 * [**Hastie, et al.**: Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/) - Probably one of the most famous books on the subject. It can be a bit dense and is somewhat "out-of-date" in that it doesn't have modern takes/algorithms. But it deserves its rightful place in the pantheon and very happy it is freely available.
@@ -18,7 +19,13 @@ There are some amazing free resources out there for everyone to use and I'll do 
 * [**James, et al.**: An Introduction to Statistical Learning](https://www.statlearning.com/) - You can download the pdf of the book from here. It is a more introductory but also more modern in terms of the techniques covered.
 * [**Murphy, Kevin**: Machine Learning - A Probabilistic Perspective](http://noiselab.ucsd.edu/ECE228/Murphy_Machine_Learning.pdf) - Truly wonderful book. I enjoyed every section.
 * [**Murphy, Kevin**: Probabilistic Machine Learning](https://probml.github.io/pml-book/book1.html) - I've not yet read this, but have it pre-ordered AND just saw the pre-print is available. It looks as wonderful as the first (and cannot wait to see the NEW book in 2023!!!)
+* [**Shalev-Schwartz & Ben-David**: Understanding Machine Learning - From Theory to Algorithms ](https://www.cs.huji.ac.il/w~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf) - A more theoretical book that is not for beginners but very good.
 * [**Theodoridis & Koutroumbas**: Pattern Recognition](https://darmanto.akakom.ac.id/pengenalanpola/Pattern%20Recognition%204th%20Ed.%20(2009).pdf) - I just discovered this looking for a different book by Theodoridis. It looks similar (which is great) but additional topics. It is older and I've not read it yet.
+
+### Subject Specific Books
+* [**Goodfellow et al.**: Deep Learning](https://www.deeplearningbook.org/) - A really cool resource focussed just on deep learning.
+* [**Rasmussen & Williams**: Gaussian Processes for Machine Learning](http://www.gaussianprocess.org/gpml/chapters/RW.pdf) - An amazing book about one of my favorite algorithms! It's short but wonderful. I can't recommend it enough.
+
 
 ### General Lectures
 * [**Cornell**: CS 4/5780: Introduction to Machine Learning](https://www.cs.cornell.edu/courses/cs4780/2021fa/) -  One of my all-time favorite series! Prof. Weinberger is brilliant and very funny.  

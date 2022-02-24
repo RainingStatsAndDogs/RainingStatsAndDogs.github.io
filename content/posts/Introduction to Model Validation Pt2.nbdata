@@ -1,0 +1,7 @@
+Title: Introduction to Model Validation - Pt 2
+Slug: intro-to-model-validation-2
+Date: '2022-02-23'
+Category: python
+Tags: python sklearn learning_curves baseline_models ROC AUC confusion_matrices
+Author: PB
+Summary: Showing how to perform model validation with classification
