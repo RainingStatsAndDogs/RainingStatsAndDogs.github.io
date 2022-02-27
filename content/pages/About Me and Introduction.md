@@ -10,7 +10,7 @@ I'm bad at these sorts of things under the best of circumstances--trying to figu
 
 I am a professional data scientist with a mathematics & statistics background that has been in industry for quite a while. I am a lifelong learner and have benefited from having several wonderful teachers and mentors in my career. I hope that this blog in some small way repays the kindness I've received from so many wonderful people that took an interest in my development.  
 
-I plan to cover several topics that I find interesting, including some past tutorials/talks I'd given, including things like:
+I plan to cover several topics that I find interesting, including some past tutorials/talks I'd given, including things like: <br/>
 * Statistical & Probabilistic Machine Learning
 * Computer Vision
 * Probability & Stochastic Processes

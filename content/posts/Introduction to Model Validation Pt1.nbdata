@@ -1,7 +1,7 @@
 Title: Introduction to Model Validation - Pt 1
 Slug: intro-to-model-validation-1
 Date: '2022-02-20'
-Category: python
-Tags: python sklearn learning_curves baseline_models
+Category: Programming
+Tags: python, sklearn, learning_curves, baseline_models
 Author: PB
 Summary: Showing how to perform model validation with regression
