@@ -4,9 +4,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Pelican" />
-        <title>It's Raining Stats and Dogs</title>
+        <title>A Bit About Null Hypothesis Significance Testing (NHST)</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="It's Raining Stats and Dogs Atom Feed" />
+        <meta name="description" content="A Brief Review of NHST" />
 </head>
 
 <body id="index" class="home">
@@ -16,13 +17,18 @@
                     <li><a href="/pages/about.html">About Me & Introduction</a></li>
                     <li><a href="/pages/free-resources.html">Free Books and Lectures</a></li>
                     <li><a href="/category/programming.html">Programming</a></li>
-                    <li><a href="/category/theory.html">Theory</a></li>
+                    <li class="active"><a href="/category/theory.html">Theory</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/a-bit-of-NHST.html" rel="bookmark"
+           title="Permalink to A Bit About Null Hypothesis Significance Testing (NHST)">A Bit About Null Hypothesis Significance Testing (NHST)</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/a-bit-of-NHST.html">A Bit About Null Hypothesis Significance Testing (NHST)</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2022-02-27T00:00:00-08:00">
                 Published: Sun 27 February 2022
@@ -33,7 +39,7 @@
         </address>
 <p>In <a href="/category/theory.html">Theory</a>.</p>
 <p>tags: <a href="/tag/nhst.html">&#39;NHST&#39;</a> <a href="/tag/sampling-distributions.html">&#39;Sampling Distributions&#39;</a> <a href="/tag/p-values.html">&#39;p-values&#39;</a> </p>
-</footer><!-- /.post-info --><h2>Motivation</h2>
+</footer><!-- /.post-info -->      <h2>Motivation</h2>
 <p>Recently at work, this topic has come up related to some experimentation. During the course of the discussions, it became pretty clear that the concepts of <a href="https://en.wikipedia.org/wiki/Statistical_hypothesis_testing">Null Hypothesis Significance Testing</a> (NHST) create a great deal of confusion.  Concepts such as <a href="https://en.wikipedia.org/wiki/P-value">p-values</a>, <a href="https://en.wikipedia.org/wiki/Confidence_interval">Confidence Intervals</a>, <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors">Type I &amp; Type II Errors</a> amongst others are misintrepreted, even by experts in the field. To that end, I am quite certain I'll probably mess up something as well and look forward to the correction. :) </p>
 <p>But the discussions today motivated me to put a few notes down about NHST to at least address a few of the core concepts, specifically the notion of a "<a href="https://en.wikipedia.org/wiki/Sampling_distribution">Sampling Distribution</a>" and <strong>p-values</strong>. I'm hoping to address some more advanced aspects including some of the objections to this, Let's get to the math by discussing the problem this is intended to solve.</p>
 <h2>The Problem</h2>
@@ -52,80 +58,11 @@ This means there was at least a 17% chance we would observe 7, 8, 9 or 10 "Heads
 <p>To be clear, this is not the currently taught view of NHST which blends together this approach of Fisher with a decision-theoretic approach utilized by Neyman-Pearson. The current form that is typically taught directly considers an alternative hypothesis, considers the <a href="https://en.wikipedia.org/wiki/Power_of_a_test"><strong>power</strong></a> of the test and the two principal error types (Type I/Type II). These are important topics, but I'm not going to cover them in this post. However, I do want to cover a significant complication related to the use of the Sampling Distribution.</p>
 <h2>Conceptual Issues</h2>
 <p>We showed that these tests require the use of a sampling distribution. In the above example, this was called out but it probably didn't seem like that big of a deal. But a major problem here (IMO) is that we made a very subtle assumption about how we tried to collect the sample and that this assumption plays a critical role. I said that we flipped a coin 10 times and got 7 "Heads". The implication is that I was going to flip the coin 10 times no matter what, and no matter how many "Heads" I got, I would stop at 10. But this was never clearly stated! We could just have easily decided to flip until we got 3 "Tails" and achieved this on the 10th flip. This very minor change in our goal <em>fundamentally</em> changes the sampling distribution. Specifically, we would no longer have a Binomially distributed sample statistic! Rather, we would have a Negative Binomally distributed sample statistic! These distributions are not the same and can yield totally different p-values under the same set-up.</p>
-<p>This is all to say that your intention when you collect your data has a profound impact on your results and this is almost never considered! This doesn't even begin to cover the case if we were going to flip two or more additional coins, where, <em>without even knowing the result of the other flips</em>, you would have totally different p-values just because you <em>intended</em> to flip other coins. This is one of the craziest and most frustrating aspects of this theory in my opinion and in future posts I'll talk about other techniques that stay more closely related to the original data generating process and ignore this problem completely. Until then!</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>This is all to say that your intention when you collect your data has a profound impact on your results and this is almost never considered! This doesn't even begin to cover the case if we were going to flip two or more additional coins, where, <em>without even knowing the result of the other flips</em>, you would have totally different p-values just because you <em>intended</em> to flip other coins. This is one of the craziest and most frustrating aspects of this theory in my opinion and in future posts I'll talk about other techniques that stay more closely related to the original data generating process and ignore this problem completely. Until then!</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intro-to-model-validation-2.html" rel="bookmark"
-                           title="Permalink to Introduction to Model Validation - Pt 2">Introduction to Model Validation - Pt 2</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-23T00:00:00-08:00">
-                Published: Wed 23 February 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/pb.html">PB</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/sklearn.html">sklearn</a> <a href="/tag/learning_curves.html">learning_curves</a> <a href="/tag/baseline_models.html">baseline_models</a> <a href="/tag/roc.html">ROC</a> <a href="/tag/auc.html">AUC</a> <a href="/tag/confusion_matrices.html">confusion_matrices</a> </p>
-</footer><!-- /.post-info -->                <p>Showing how to perform model validation with classification</p>
-                <a class="readmore" href="/intro-to-model-validation-2.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intro-to-model-validation-1.html" rel="bookmark"
-                           title="Permalink to Introduction to Model Validation - Pt 1">Introduction to Model Validation - Pt 1</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-20T00:00:00-08:00">
-                Published: Sun 20 February 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/pb.html">PB</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/sklearn.html">sklearn</a> <a href="/tag/learning_curves.html">learning_curves</a> <a href="/tag/baseline_models.html">baseline_models</a> </p>
-</footer><!-- /.post-info -->                <p>Showing how to perform model validation with regression</p>
-                <a class="readmore" href="/intro-to-model-validation-1.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intro-to-sklearn-best-practices.html" rel="bookmark"
-                           title="Permalink to Introduction to scikit-learn Best Practices">Introduction to scikit-learn Best Practices</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-19T00:00:00-08:00">
-                Published: Sat 19 February 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/pb.html">PB</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/sklearn.html">sklearn</a> <a href="/tag/gridsearchcv.html">gridsearchcv</a> <a href="/tag/pipelines.html">pipelines</a> </p>
-</footer><!-- /.post-info -->                <p>Showing how to integrate gridsearchcv within sklearn pipelines</p>
-                <a class="readmore" href="/intro-to-sklearn-best-practices.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
