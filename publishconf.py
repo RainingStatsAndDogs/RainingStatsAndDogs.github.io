@@ -18,5 +18,5 @@ DELETE_OUTPUT_DIRECTORY = True
 # Following items are often useful when publishing
 
 DISQUS_SITENAME = "https://rainingstatsanddogs.github.io"
-GOOGLE_ANALYTICS = "G-FR6WBQ59JG"
+GOOGLE_ANALYTICS = "UA-221548709-2"
 # Old GA = G-7GTHWKFNH4

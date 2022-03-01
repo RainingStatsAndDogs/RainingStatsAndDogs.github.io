@@ -52,7 +52,7 @@ This means there was at least a 17% chance we would observe 7, 8, 9 or 10 "Heads
 <p>To be clear, this is not the currently taught view of NHST which blends together this approach of Fisher with a decision-theoretic approach utilized by Neyman-Pearson. The current form that is typically taught directly considers an alternative hypothesis, considers the <a href="https://en.wikipedia.org/wiki/Power_of_a_test"><strong>power</strong></a> of the test and the two principal error types (Type I/Type II). These are important topics, but I'm not going to cover them in this post. However, I do want to cover a significant complication related to the use of the Sampling Distribution.</p>
 <h2>Conceptual Issues</h2>
 <p>We showed that these tests require the use of a sampling distribution. In the above example, this was called out but it probably didn't seem like that big of a deal. But a major problem here (IMO) is that we made a very subtle assumption about how we tried to collect the sample and that this assumption plays a critical role. I said that we flipped a coin 10 times and got 7 "Heads". The implication is that I was going to flip the coin 10 times no matter what, and no matter how many "Heads" I got, I would stop at 10. But this was never clearly stated! We could just have easily decided to flip until we got 3 "Tails" and achieved this on the 10th flip. This very minor change in our goal <em>fundamentally</em> changes the sampling distribution. Specifically, we would no longer have a Binomially distributed sample statistic! Rather, we would have a Negative Binomally distributed sample statistic! These distributions are not the same and can yield totally different p-values under the same set-up.</p>
-<p>This is all to say that your intention when you collect your data has a profound impact on your results and this is almost never considered! This doesn't even begin to cover the case if we were going to flip two or more additional coins, where, <em>without even knowing the result of the other flips</em>, you would have totally different p-values just because you <em>intended</em> to flip other coins. This is one of the craziest and most frustrating aspects of this theory in my opinion and in future posts I'll talk about other techniques that stay more closely related to the original data generating process and ignore this problem completely. Until then!</p>                </article>
+<p>This is all to say that your intention when you collect your data has a profound impact on your results and this is almost never considered! This doesn't even begin to cover the case if we were going to flip two or more additional coins, where, <em>without even knowing the result of the other flips</em>, you would have totally different p-values just because you <em>intended</em> to flip other coins. This is one of the craziest and most frustrating aspects of this theory in my opinion and in future posts I'll talk about other techniques that stay more closely related to the original data generating process and ignore this problem completely. Until then!</p><p>There are <a href="/a-bit-of-NHST.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
@@ -89,5 +89,23 @@ This means there was at least a 17% chance we would observe 7, 8, 9 or 10 "Heads
                 <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
+    <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-FR6WBQ59JG', 'auto');
+    ga('send', 'pageview');
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'https://rainingstatsanddogs.github.io';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 </html>
