@@ -1,0 +1,7 @@
+Title: Custom Estimators with scikit-learn
+Slug: custom-estimators-with-sklearn
+Date: '2022-05-08'
+Category: Programming
+Tags: python, sklearn, statistical_learning_theory, base_estimator, regressor_mixin
+Author: PB
+Summary: Discssing a little Statistical Learning Theory and then implementing two rudimentary custom estimators with sklearn
