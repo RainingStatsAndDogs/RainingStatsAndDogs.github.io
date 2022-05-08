@@ -4,9 +4,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Pelican" />
-        <title>It's Raining Stats and Dogs</title>
+        <title>Custom Estimators with scikit-learn</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="It's Raining Stats and Dogs Atom Feed" />
+        <meta name="description" content="Discssing a little Statistical Learning Theory and then implementing two rudimentary custom estimators with sklearn" />
 </head>
 
 <body id="index" class="home">
@@ -15,14 +16,19 @@
                 <nav><ul>
                     <li><a href="/pages/about.html">About Me & Introduction</a></li>
                     <li><a href="/pages/free-resources.html">Free Books and Lectures</a></li>
-                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li class="active"><a href="/category/programming.html">Programming</a></li>
                     <li><a href="/category/theory.html">Theory</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/custom-estimators-with-sklearn.html" rel="bookmark"
+           title="Permalink to Custom Estimators with scikit-learn">Custom Estimators with scikit-learn</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/custom-estimators-with-sklearn.html">Custom Estimators with scikit-learn</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2022-05-08T00:00:00-07:00">
                 Published: Sun 08 May 2022
@@ -33,7 +39,7 @@
         </address>
 <p>In <a href="/category/programming.html">Programming</a>.</p>
 <p>tags: <a href="/tag/python.html">python</a> <a href="/tag/sklearn.html">sklearn</a> <a href="/tag/statistical_learning_theory.html">statistical_learning_theory</a> <a href="/tag/base_estimator.html">base_estimator</a> <a href="/tag/regressor_mixin.html">regressor_mixin</a> </p>
-</footer><!-- /.post-info --><style type="text/css">/*!
+</footer><!-- /.post-info -->      <style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -1787,124 +1793,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>
-<p>There are <a href="/custom-estimators-with-sklearn.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intro-to-statsmodelss.html" rel="bookmark"
-                           title="Permalink to Introduction to statsmodels">Introduction to statsmodels</a></h1>
-                </header>
+    </div><!-- /.entry-content -->
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-04-26T00:00:00-07:00">
-                Published: Tue 26 April 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/pb.html">PB</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/statsmodels.html">statsmodels</a> </p>
-</footer><!-- /.post-info -->                <p>A quick introduction to statsmodels and why you should consider using it</p>
-                <a class="readmore" href="/intro-to-statsmodelss.html">read more</a>
-<p>There are <a href="/intro-to-statsmodelss.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/a-bit-of-NHST.html" rel="bookmark"
-                           title="Permalink to A Bit About Null Hypothesis Significance Testing (NHST)">A Bit About Null Hypothesis Significance Testing (NHST)</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-27T00:00:00-08:00">
-                Published: Sun 27 February 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/pb.html">PB</a>
-        </address>
-<p>In <a href="/category/theory.html">Theory</a>.</p>
-<p>tags: <a href="/tag/nhst.html">&#39;NHST&#39;</a> <a href="/tag/sampling-distributions.html">&#39;Sampling Distributions&#39;</a> <a href="/tag/p-values.html">&#39;p-values&#39;</a> </p>
-</footer><!-- /.post-info -->                <p>A Brief Review of NHST</p>
-                <a class="readmore" href="/a-bit-of-NHST.html">read more</a>
-<p>There are <a href="/a-bit-of-NHST.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intro-to-model-validation-2.html" rel="bookmark"
-                           title="Permalink to Introduction to Model Validation - Pt 2">Introduction to Model Validation - Pt 2</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-23T00:00:00-08:00">
-                Published: Wed 23 February 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/pb.html">PB</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/sklearn.html">sklearn</a> <a href="/tag/learning_curves.html">learning_curves</a> <a href="/tag/baseline_models.html">baseline_models</a> <a href="/tag/roc.html">ROC</a> <a href="/tag/auc.html">AUC</a> <a href="/tag/confusion_matrices.html">confusion_matrices</a> </p>
-</footer><!-- /.post-info -->                <p>Showing how to perform model validation with classification</p>
-                <a class="readmore" href="/intro-to-model-validation-2.html">read more</a>
-<p>There are <a href="/intro-to-model-validation-2.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intro-to-model-validation-1.html" rel="bookmark"
-                           title="Permalink to Introduction to Model Validation - Pt 1">Introduction to Model Validation - Pt 1</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-20T00:00:00-08:00">
-                Published: Sun 20 February 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/pb.html">PB</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/sklearn.html">sklearn</a> <a href="/tag/learning_curves.html">learning_curves</a> <a href="/tag/baseline_models.html">baseline_models</a> </p>
-</footer><!-- /.post-info -->                <p>Showing how to perform model validation with regression</p>
-                <a class="readmore" href="/intro-to-model-validation-1.html">read more</a>
-<p>There are <a href="/intro-to-model-validation-1.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intro-to-sklearn-best-practices.html" rel="bookmark"
-                           title="Permalink to Introduction to scikit-learn Best Practices">Introduction to scikit-learn Best Practices</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-19T00:00:00-08:00">
-                Published: Sat 19 February 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/pb.html">PB</a>
-        </address>
-<p>In <a href="/category/programming.html">Programming</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/sklearn.html">sklearn</a> <a href="/tag/gridsearchcv.html">gridsearchcv</a> <a href="/tag/pipelines.html">pipelines</a> </p>
-</footer><!-- /.post-info -->                <p>Showing how to integrate gridsearchcv within sklearn pipelines</p>
-                <a class="readmore" href="/intro-to-sklearn-best-practices.html">read more</a>
-<p>There are <a href="/intro-to-sklearn-best-practices.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
